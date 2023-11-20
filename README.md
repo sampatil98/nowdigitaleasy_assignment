@@ -4,7 +4,7 @@
 
 This API provides functionality to manage user data including adding, retrieving, updating, and deleting users from the database.
 
-## Base URL
+
 
 
 ## Endpoints
@@ -43,7 +43,7 @@ This API provides functionality to manage user data including adding, retrieving
 ---
 
 ### Get All Users
-- **Endpoint:** `user/allUsers`
+- **Endpoint:** `/user/allUsers`
 - **Method:** `GET`
 - **Description:** Retrieves all users' data from the database.
 - **Success Response:**
@@ -69,7 +69,7 @@ This API provides functionality to manage user data including adding, retrieving
 ---
 
 ### Get User by ID
-- **Endpoint:** `user/getUser/:id`
+- **Endpoint:** `/user/getUser/:id`
 - **Method:** `GET`
 - **Description:** Retrieves specific user data by their ID from the database.
 - **Request Parameter:**
@@ -97,7 +97,7 @@ This API provides functionality to manage user data including adding, retrieving
 ---
 
 ### Delete User by ID
-- **Endpoint:** `user/deleteUser/:id`
+- **Endpoint:** `/user/deleteUser/:id`
 - **Method:** `DELETE`
 - **Description:** Removes a user from the database by their ID.
 - **Request Parameter:**
@@ -125,7 +125,7 @@ This API provides functionality to manage user data including adding, retrieving
 ---
 
 ### Update User by ID
-- **Endpoint:** `user/updateUser/:id`
+- **Endpoint:** `/user/updateUser/:id`
 - **Method:** `PUT`
 - **Description:** Updates a user's data by their ID in the database.
 - **Request Parameter:**
