@@ -14,7 +14,7 @@ To use this API, follow the instructions below:
    - Add the following environment variables to the `.env` file:
      ```
      PORT=your_desired_port
-     MONGO_URI=your_mongo_connection_string
+     MONGO_URL=your_mongo_connection_string
      ```
 3. **Run the Server:**
    - Execute `npm start` to start the server.
