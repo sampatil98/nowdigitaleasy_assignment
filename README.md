@@ -1,4 +1,4 @@
-# nowdigitaleasy_assignment
+# USER API
 
 ## Getting Started
 
