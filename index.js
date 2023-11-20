@@ -8,6 +8,12 @@ const {userRouter}=require("./Routes/user.routes");
 const app=express();
 
 app.use(express.json());
+app.use(cors());
+
+app.get("/",(req,res)=>{
+    res.status(200).send(`<h1> Welcome to USER APIs Backend </h1>`);
+})
+
 
 app.use("/user",userRouter)
 
