@@ -1,5 +1,7 @@
 # USER API
 
+## Deployed Link : https://user-apis.up.railway.app/
+
 ## Getting Started
 
 To use this API, follow the instructions below:
