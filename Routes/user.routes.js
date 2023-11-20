@@ -5,7 +5,7 @@ const {UserModel}=require("../Models/user.model");
 const userRouter=Router();
 
 
-userRouter.post("/adduser",async(req,res)=>{
+userRouter.post("/addUser",async(req,res)=>{
     try {
         let {name,email,phoneNumber,role}=req.body;
 
@@ -27,7 +27,7 @@ userRouter.post("/adduser",async(req,res)=>{
 });
 
 
-userRouter.get("/allusers",async(req,res)=>{
+userRouter.get("/allUsers",async(req,res)=>{
     try {
 
         let users= await UserModel.find();
@@ -45,7 +45,7 @@ userRouter.get("/allusers",async(req,res)=>{
     }
 });
 
-userRouter.get("/getuser/:id",async(req,res)=>{
+userRouter.get("/getUser/:id",async(req,res)=>{
     try {
 
         const {id}=req.params;
@@ -71,6 +71,35 @@ userRouter.get("/getuser/:id",async(req,res)=>{
         })
     }
 });
+
+userRouter.delete("/deleteUser/:id",async(req,res)=>{
+    try {
+
+        const {id}=req.params;
+
+        let user= await UserModel.findByIdAndDelete(id);
+
+        if(!user){
+            return res.status(400).send({
+                isError:true,
+                message: "User not found please provide correct user id"
+            })
+        }
+        res.status(200).send({
+            isError:false,
+            message: `user data with id : ${id} removed from database `,
+            data:user
+        })
+        
+    } catch (error) {
+        res.status(400).send({
+            isError:true,
+            error:error.message
+        })
+    }
+});
+
+
 
 
 
