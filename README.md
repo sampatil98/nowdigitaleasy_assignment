@@ -1,11 +1,28 @@
 # nowdigitaleasy_assignment
 
+## Getting Started
+
+To use this API, follow the instructions below:
+
+1. **Installation:**
+   - Ensure you have Node.js and npm installed on your system.
+   - Clone this repository and navigate to the project directory.
+   - Run `npm install` to install all dependencies.
+
+2. **Environment Variables:**
+   - Create a `.env` file in the root directory of the project.
+   - Add the following environment variables to the `.env` file:
+     ```
+     PORT=your_desired_port
+     MONGO_URI=your_mongo_connection_string
+     ```
+3. **Run the Server:**
+   - Execute `npm start` to start the server.
+   - The server will run on the defined port in the `.env` file.
+
 # User API Documentation
 
 This API provides functionality to manage user data including adding, retrieving, updating, and deleting users from the database.
-
-
-
 
 ## Endpoints
 
