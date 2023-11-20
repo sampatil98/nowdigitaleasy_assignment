@@ -99,10 +99,31 @@ userRouter.delete("/deleteUser/:id",async(req,res)=>{
     }
 });
 
+userRouter.put("/updateUser/:id",async(req,res)=>{
+    try {
+        let {name,email,phoneNumber,role}=req.body;
+        let {id}=req.params;
 
+        let user= await UserModel.findOneAndReplace({_id:id},{name,email,phoneNumber,role});
 
-
-
+        if(!user){
+            return res.status(400).send({
+                isError:true,
+                message: "User not found please provide correct user id"
+            })
+        }
+        res.status(200).send({
+            isError:false,
+            message: `user data with id : ${id} updated successfully`,
+        })
+        
+    } catch (error) {
+        res.status(400).send({
+            isError:true,
+            error:error.message
+        })
+    }
+});
 
 
 module.exports={userRouter};
