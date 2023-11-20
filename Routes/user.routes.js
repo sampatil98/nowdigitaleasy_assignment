@@ -21,7 +21,7 @@ userRouter.post("/adduser",async(req,res)=>{
     } catch (error) {
         res.status(400).send({
             isError:true,
-            error
+            error:error.message
         })
     }
 });
@@ -40,10 +40,37 @@ userRouter.get("/allusers",async(req,res)=>{
     } catch (error) {
         res.status(400).send({
             isError:true,
-            error
+            error:error.message
         })
     }
-})
+});
+
+userRouter.get("/getuser/:id",async(req,res)=>{
+    try {
+
+        const {id}=req.params;
+
+        let user= await UserModel.findOne({_id:id});
+
+        if(!user){
+            return res.status(400).send({
+                isError:true,
+                message: "User not found please provide correct user id"
+            })
+        }
+        res.status(200).send({
+            isError:false,
+            message: "perticular users data",
+            data:user
+        })
+        
+    } catch (error) {
+        res.status(400).send({
+            isError:true,
+            error:error.message
+        })
+    }
+});
 
 
 
