@@ -24,6 +24,25 @@ userRouter.post("/adduser",async(req,res)=>{
             error
         })
     }
+});
+
+
+userRouter.get("/allusers",async(req,res)=>{
+    try {
+
+        let users= await UserModel.find();
+        res.status(200).send({
+            isError:false,
+            message: "All users data",
+            data:users
+        })
+        
+    } catch (error) {
+        res.status(400).send({
+            isError:true,
+            error
+        })
+    }
 })
 
 
