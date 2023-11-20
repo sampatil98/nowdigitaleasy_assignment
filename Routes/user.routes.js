@@ -12,7 +12,7 @@ userRouter.post("/addUser",async(req,res)=>{
         let user= new UserModel({name,email,phoneNumber,role});
         await user.save();
 
-        res.status(200).send({
+        res.status(201).send({
             isError:false,
             message: "New user created successfully",
             data:user
@@ -53,7 +53,7 @@ userRouter.get("/getUser/:id",async(req,res)=>{
         let user= await UserModel.findOne({_id:id});
 
         if(!user){
-            return res.status(400).send({
+            return res.status(404).send({
                 isError:true,
                 message: "User not found please provide correct user id"
             })
@@ -80,7 +80,7 @@ userRouter.delete("/deleteUser/:id",async(req,res)=>{
         let user= await UserModel.findByIdAndDelete(id);
 
         if(!user){
-            return res.status(400).send({
+            return res.status(404).send({
                 isError:true,
                 message: "User not found please provide correct user id"
             })
@@ -107,7 +107,7 @@ userRouter.put("/updateUser/:id",async(req,res)=>{
         let user= await UserModel.findOneAndReplace({_id:id},{name,email,phoneNumber,role});
 
         if(!user){
-            return res.status(400).send({
+            return res.status(404).send({
                 isError:true,
                 message: "User not found please provide correct user id"
             })
